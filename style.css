@@ -48,25 +48,33 @@ header img {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    /* align-items: end; */
     justify-content: end;
     gap: 0.5rem;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .bot, .human {
     display: flex;
     width: 100%;
     height: fit-content;
+    flex-wrap: wrap;
 }
 
 .bot p,.human p{
     width: fit-content;
-    max-width: 30%;
-    padding: 0.5rem;
+    height: auto;
+    max-width: 40%;
+    padding: 0.5rem 1rem;
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 20px 20px 0 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.bot p {
+    border-radius: 20px 20px 20px 0;
 }
 
 .human {
@@ -108,5 +116,23 @@ header img {
 
     main {
         width: 100%;
+    }
+
+    .convers {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .bot, .human {
+        width: 100%;
+    }
+
+    .bot p, .human p {
+        width: fit-content;
+        max-width: 50%;
+        height: fit-content;
+    }
+    .human p {
+        text-align: right;
     }
 }

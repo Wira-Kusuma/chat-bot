@@ -15,71 +15,43 @@ function sending() {
     convers.appendChild(element);
 }
 
+function botReply(text) {
+    let element = document.createElement("div");
+    element.className = "bot";
+    element.innerHTML = `<p>${text}</p>`;
+    convers.appendChild(element);
+}
+
+
 send.addEventListener("click", function() {
-    if(userInput.value.trim() === "" ){
-        let element = document.createElement("div");
-        element.className = "bot";
-        element.innerHTML = `
-        <p>don't send empty message</p>
-        `;
-        userInput.value="";
+    const msg = userInput.value.trim().toLowerCase();
+    sending();
+    setTimeout(() => {
+        if (msg === "") {
+            botReply("don't send empty message");
+            userInput.value = "";
+            userInput.focus();
+            return;
+        }
+        
+        else if (["hi", "hello", "how are you", "?"].some(phrase => msg.includes(phrase))) {
+            botReply("who are you?? i have boyfriend");
+        } 
+        
+        else if ((["oh", "understand", "i see"]).some(phrase => msg.includes(phrase))) {
+            botReply("finally you understand");
+        } 
+        
+        else if (["+", "-", "x", "/", "equal", "=", "divided"].some(op => msg.includes(op))) {
+            botReply("i don't know lol, use calculator");
+        } 
+        
+        else {
+            botReply("huh i don't understand??");
+        }
+
+        userInput.value = "";
         userInput.focus();
-        convers.appendChild(element);
-    }
-    else if (userInput.value.includes("hi") || userInput.value.includes("hello") || userInput.value.includes("how are you") ||userInput.value.includes("?")){
-        sending();
-        setTimeout(() => {
-            let element = document.createElement("div");
-            element.className = "bot";
-            element.innerHTML = `
-            <p>who are you?? i have boyfriend</p>
-            `;
-            userInput.value="";
-            userInput.focus();
-            convers.appendChild(element);
-        }, 500);
-        
-    }
-    else if (userInput.value.includes("oh")){
-        sending();
-        setTimeout(() => {
-            let element = document.createElement("div");
-            element.className = "bot";
-            element.innerHTML = `
-            <p>finally you understand</p>
-            `;
-            userInput.value="";
-            userInput.focus();
-            convers.appendChild(element);
-        }, 500);
-        
-    }
-    else if (userInput.value.includes("+") || userInput.value.includes("-") || userInput.value.includes("x") || userInput.value.includes("/") || userInput.value.includes("equal") || userInput.value.includes("=")){
-        sending();
-        setTimeout(() => {
-            let element = document.createElement("div");
-            element.className = "bot";
-            element.innerHTML = `
-            <p>i don't know lol</p>
-            `;
-            userInput.value="";
-            userInput.focus();
-            convers.appendChild(element);
-        }, 500);
-        
-    }
-    else {
-        sending();
-        setTimeout(() => {
-            let element = document.createElement("div");
-            element.className = "bot";
-            element.innerHTML = `
-            <p>huh i don't understand??</p>
-            `;
-            userInput.value="";
-            userInput.focus();
-            convers.appendChild(element);
-        }, 500);
-    }
+    }, 500);
 });
 
