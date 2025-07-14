@@ -1,9 +1,10 @@
 let human = document.querySelector(".human");
 let bot = document.querySelector(".bot");
-let send = document.querySelector("button");
+let send = document.querySelector("#send");
 let userInput = document.querySelector("#userInput");
 let convers = document.querySelector(".convers");
 
+// sending function rewrite from input to chat
 function sending() {
     let element = document.createElement("div");
     element.className = "human";
@@ -15,6 +16,7 @@ function sending() {
     convers.appendChild(element);
 }
 
+// bot get text from process and show it into chat
 function botReply(text) {
     let element = document.createElement("div");
     element.className = "bot";
@@ -22,20 +24,29 @@ function botReply(text) {
     convers.appendChild(element);
 }
 
+// when send button clicked
+send.addEventListener("click", process);
+// when hit enter key
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        process();
+    }
+});
 
-send.addEventListener("click", function() {
+// input validation process
+function process() {
     const msg = userInput.value.trim().toLowerCase();
     sending();
     setTimeout(() => {
         if (msg === "") {
-            botReply("don't send empty message");
+            botReply("you massage are empty, if you don't know what to ask, open suggestion in top left");
             userInput.value = "";
             userInput.focus();
             return;
         }
         
-        else if (["hi", "hello", "how are you", "?"].some(phrase => msg.includes(phrase))) {
-            botReply("who are you?? i have boyfriend");
+        else if (["hi", "hello", "halo", "hola"].some(phrase => msg.includes(phrase))) {
+            botReply("hi im chatbot, what do you want to ask, open the suggestion in top left.");
         } 
         
         else if ((["oh", "understand", "i see"]).some(phrase => msg.includes(phrase))) {
@@ -47,11 +58,10 @@ send.addEventListener("click", function() {
         } 
         
         else {
-            botReply("huh i don't understand??");
+            botReply("sorry your input doen't in my program, need to talk? chat me in whatsapp  ");
         }
 
         userInput.value = "";
         userInput.focus();
     }, 500);
-});
-
+}
