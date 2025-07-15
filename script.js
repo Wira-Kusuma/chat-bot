@@ -61,7 +61,23 @@ function process() {
             botReply("sorry your input doen't in my program, need to talk? chat me in whatsapp  ");
         }
 
+        // detele value in input after send message
         userInput.value = "";
+        // focusing to input after send
         userInput.focus();
     }, 500);
 }
+
+
+// open and close section suggestion
+let burger = document.querySelector(".burger");
+let close = document.querySelector(".close");
+let section = document.querySelector("section");
+
+burger.addEventListener("click", function() {
+    section.classList.add("active");
+});
+
+close.addEventListener("click", function() {
+    section.classList.remove("active");
+});
