@@ -124,6 +124,7 @@ header img {
 .typing button {
     width: 10%;
     height: 2rem;
+    user-select: none;
 }
 
 .suggestion {
@@ -142,6 +143,7 @@ header img {
 .part button {
     padding: 0.2rem 1rem;
     cursor: pointer;
+    user-select: none;
 }
 
 
