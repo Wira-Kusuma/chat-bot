@@ -81,3 +81,13 @@ burger.addEventListener("click", function() {
 close.addEventListener("click", function() {
     section.classList.remove("active");
 });
+
+const part = []
+for (let i = 1; i <= 3; i++) {
+    part[i] = document.querySelector(`.part:nth-child${i}`);
+}
+
+const part1 = [];
+for (let i = 0; i <= 7; i++) {
+    part1[i] = document.querySelector(`.part1 button:nth-child(${i + 1})`);
+}

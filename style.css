@@ -1,5 +1,5 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -40,6 +40,8 @@ section {
     padding: 1rem;
     background-color: var(--sidebar-color);
 }
+
+
 
 .burger {display: none;}
 .close {display: none;}
@@ -144,14 +146,18 @@ header img {
     gap: 0.5rem;
 }
 
-.part {
+.suggestion h3 {
+    color: var(--subtle-text);
+}
+
+.part, .part1{
     display: flex;
     flex-flow: row wrap;
     gap: 0.2rem;
     margin-bottom: 1rem;
 }
 
-.part button {
+.part button, .part1 button {
     padding: 0.2rem 1rem;
     cursor: pointer;
     user-select: none;
