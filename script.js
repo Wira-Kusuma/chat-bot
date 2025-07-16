@@ -5,20 +5,7 @@ let userInput = document.querySelector("#userInput");
 let convers = document.querySelector(".convers");
 
 // sending function rewrite from input to chat
-function sending() {
-    let element = document.createElement("div");
-    element.className = "human";
-    element.innerHTML = `
-    <p>${userInput.value}</p>
-    `;
-    userInput.value="";
-    userInput.focus();
-    convers.appendChild(element);
-    convers.scrollTop = convers.scrollHeight;
-
-}
-
-function sendingre(text) {
+function sending(text) {
     let element = document.createElement("div");
     element.className = "human";
     element.innerHTML = `
@@ -53,7 +40,9 @@ document.addEventListener("keydown", function(event) {
 // input validation process
 function process() {
     const msg = userInput.value.trim().toLowerCase();
-    sending();
+
+    // display chat bubble , params take in input
+    sending(userInput.value);
     setTimeout(() => {
         if (msg === "") {
             botReply("you massage are empty, if you don't know what to ask, open suggestion in top left");
@@ -110,7 +99,7 @@ for (let i = 1; i <= 10; i++) {
 }
 
 function handleSuggestion(textsuggest, index) {
-    sendingre(textsuggest);
+    sending(textsuggest);
     document.querySelector("section").classList.remove("active");
     
     setTimeout(() => {
