@@ -16,6 +16,17 @@ function sending() {
     convers.appendChild(element);
 }
 
+function sendingre(text) {
+    let element = document.createElement("div");
+    element.className = "human";
+    element.innerHTML = `
+    <p>${text}</p>
+    `;
+    userInput.value="";
+    userInput.focus();
+    convers.appendChild(element);
+}
+
 // bot get text from process and show it into chat
 function botReply(text) {
     let element = document.createElement("div");
@@ -81,3 +92,33 @@ burger.addEventListener("click", function() {
 close.addEventListener("click", function() {
     section.classList.remove("active");
 });
+
+
+for (let i = 1; i <= 10; i++) {
+    document.getElementById(`suggestion${i}`)
+        .addEventListener("click", function () {
+            handleSuggestion(this.textContent, i);
+        });
+}
+
+function handleSuggestion(textsuggest, index) {
+    sendingre(textsuggest);
+    document.querySelector("section").classList.remove("active");
+    
+    setTimeout(() => {
+        let responses = {
+            1: "I'm a chatbot AI created to answer all questions about my creator.",
+            2: "I can explain how I was built using HTML, CSS, and JavaScript.",
+            3: "Yes, I was designed to respond intelligently, but I’m still learning!",
+            4: "My creator is Wira Kusuma Phandawa, a frontend developer.",
+            5: "He is from Indonesia!",
+            6: "he is from poor family",
+            7: "He has strong skills in HTML, CSS, JavaScript, and responsive design.",
+            8: "He has built multiple frontend projects, including this chatbot.",
+            9: "You can contact him via GitHub or his portfolio website.",
+            10: "He is currently learning advanced JavaScript and React."
+        };
+
+        botReply(responses[index] || "I'm not sure how to respond to that yet.");
+    }, 500);
+}
