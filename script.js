@@ -14,6 +14,8 @@ function sending() {
     userInput.value="";
     userInput.focus();
     convers.appendChild(element);
+    convers.scrollTop = convers.scrollHeight;
+
 }
 
 function sendingre(text) {
@@ -25,6 +27,8 @@ function sendingre(text) {
     userInput.value="";
     userInput.focus();
     convers.appendChild(element);
+    convers.scrollTop = convers.scrollHeight;
+
 }
 
 // bot get text from process and show it into chat
@@ -33,6 +37,8 @@ function botReply(text) {
     element.className = "bot";
     element.innerHTML = `<p>${text}</p>`;
     convers.appendChild(element);
+    convers.scrollTop = convers.scrollHeight;
+
 }
 
 // when send button clicked
@@ -76,6 +82,8 @@ function process() {
         userInput.value = "";
         // focusing to input after send
         userInput.focus();
+        convers.scrollTop = convers.scrollHeight;
+
     }, 500);
 }
 
