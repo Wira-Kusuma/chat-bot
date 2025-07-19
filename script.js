@@ -144,18 +144,17 @@ function handleSuggestion(textsuggest, index) {
 
   setTimeout(() => {
     let responses = {
-      1: "I'm a chatbot AI created to answer all questions about my creator.",
-      2: "I can explain how I was built using HTML, CSS, and JavaScript.",
-      3: "Yes, I was designed to respond intelligently, but I’m still learning!",
-      4: "My creator is Wira Kusuma Phandawa, a frontend developer.",
-      5: "He is from Indonesia!",
-      6: "he is from poor family",
-      7: "He has strong skills in HTML, CSS, JavaScript, and responsive design.",
-      8: "He has built multiple frontend projects, including this chatbot.",
-      9: "You can contact him via GitHub or his portfolio website.",
-      10: "He is currently learning advanced JavaScript and React.",
-    };
-
+    1: "Hey there! I'm your friendly chatbot 😄 here to answer everything about my awesome creator!",
+    2: "I was built with love using HTML, CSS, and JavaScript. Pretty cool, right?",
+    3: "Yup, I was made to reply smartly — though I’m still learning every day!",
+    4: "My creator? That would be Wira Kusuma Phandawa — a passionate frontend developer!",
+    5: "He’s proudly from Indonesia! 🇮🇩",
+    6: "He comes from humble beginnings, but that’s what fuels his drive to grow! 💪",
+    7: "Wira’s got some serious frontend skills — HTML, CSS, JavaScript, and responsive design are his playground!",
+    8: "He’s built quite a few cool projects, including me — this chatbot you're chatting with!",
+    9: "Wanna reach out to him? You can find him on GitHub or visit his portfolio site!",
+    10: "Right now, he’s diving deep into advanced JavaScript and React — leveling up like a true frontend warrior! ⚔️🔥"
+};
     botReply(responses[index] || "I'm not sure how to respond to that yet.");
   }, 500);
 }
