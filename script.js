@@ -53,7 +53,9 @@ function process() {
       userInput.value = "";
       userInput.focus();
       return;
-    } else if (
+    } 
+    
+    else if (
       ["hi", "hello", "halo", "hola"].some((phrase) => msg.includes(phrase))
     ) {
       const greetings = [
@@ -65,7 +67,9 @@ function process() {
         "Hello, friend! Need help with something?",
       ];
       botReply(greetings[Math.floor(Math.random() * greetings.length)]);
-    } else if (
+    } 
+    
+    else if (
       ["oh", "understand", "i see"].some((phrase) => msg.includes(phrase))
     ) {
       const understandingResponses = [
@@ -81,7 +85,9 @@ function process() {
           Math.floor(Math.random() * understandingResponses.length)
         ]
       );
-    } else if (
+    } 
+    
+    else if (
       ["+", "-", "x", "/", "equal", "=", "divided"].some((op) =>
         msg.includes(op)
       )
@@ -95,7 +101,21 @@ function process() {
         "Lol, I have no clue about math. Let’s keep it simple!",
       ];
       botReply(mathResponses[Math.floor(Math.random() * mathResponses.length)]);
-    } else {
+    } 
+
+    else if ( ["what", "how", "why", "can", "do you", "is it", "are you"].some((phrase) => msg.includes(phrase))) {
+        const questionResponses = [
+        "That's a good question! Let me think about it...",
+        "Interesting! I'm not sure yet, but you can check the suggestions above!",
+        "Hmm, good question. What do you think?",
+        "I’d love to answer that — but I might need an upgrade first 🤖",
+        "I wish I had the perfect answer. Try asking me in another way?",
+        "You got me thinking! Check the top-left suggestions for help."
+        ];
+        botReply(questionResponses[Math.floor(Math.random() * questionResponses.length)]);
+    }
+    
+    else {
       const unknownResponses = [
         "Hmm... I don't understand that. Want to talk? Message me on WhatsApp!",
         "Sorry, I’m not programmed for that yet. Try something else or hit me up on WhatsApp!",
